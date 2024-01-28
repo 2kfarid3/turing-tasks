@@ -19,7 +19,7 @@ public class DiviserApp {
                         System.out.print(i + " ");
                     }
                     i++;
-                } while (i <= number/2;
+                } while (i <= number/2);
             }
         }
 
