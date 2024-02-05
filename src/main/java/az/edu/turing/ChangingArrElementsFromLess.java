@@ -16,6 +16,6 @@ public class ChangingArrElementsFromLess {
             arr[i] = arr[minIndex];
             arr[minIndex] = temp;
         }
-        System.out.println(Arrays.toString(arr));C
+        System.out.println(Arrays.toString(arr));
     }
 }
