@@ -1,5 +1,6 @@
 package RandomNumbersGame;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,24 +13,24 @@ public class RandomNumbersGameApp {
         for (int i = 0; i < 1; i++) {
             array[i] = random.nextInt(101);
         }
-        int[] YourDigit = new int[15];
+        int[] yourDigit = new int[15];
         int count = 0;
         int MyNumber = in.nextInt();
         for (int i = 0; i < 1; i++) {
             while (MyNumber != array[i]) {
-                YourDigit[count++] = MyNumber;
+                yourDigit[count++] = MyNumber;
                 if (MyNumber < array[i]) {
                     System.out.println("Your number is too small. Please, try again.");
-                    MyNumber = in.nextInt();
                 } else {
                     System.out.println("Your number is too big. Please, try again.");
-                    MyNumber = in.nextInt();
                 }
+                MyNumber = in.nextInt();
             }
         }
         System.out.print("Your numbers: ");
+        Arrays.sort(yourDigit, 0, count);
         for (int i = 0; i < count; i++) {
-            System.out.print(YourDigit[i] + " ");
+            System.out.print(yourDigit[i] + " ");
         }
         System.out.println();
         System.out.println("Congratulations, {Farid}!");
