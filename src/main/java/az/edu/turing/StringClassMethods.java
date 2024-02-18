@@ -6,25 +6,24 @@ public class StringClassMethods {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String b = in.nextLine();
-        String result = getName(b);
-        int result1 = getName1(b);
-        System.out.println(result);
-        System.out.println(result1);
+        String name = getName(b);
+        assert name != null;
+        int nameLength = getNameLength(name);
+        System.out.println(name);
+        System.out.println(nameLength);
     }
 
-    public static String getName(String a){
-        int atIndex = a.indexOf("@");
+    public static String getName(String input) {
+        int atIndex = input.indexOf("@");
         if (atIndex != -1) {
-            String result = a.substring(0, atIndex);
-            return result;
+            return input.substring(0, atIndex);
         } else {
             System.out.println("Invalid input!");
             return null;
         }
     }
 
-    public static int getName1(String a){
-        return a.length();
+    public static int getNameLength(String name) {
+        return name.length();
     }
 }
-
