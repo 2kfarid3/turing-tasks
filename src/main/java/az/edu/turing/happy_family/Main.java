@@ -1,4 +1,4 @@
-package happy_family;
+package az.edu.turing.happy_family;
 
 public class Main {
     public static void main(String[] args) {

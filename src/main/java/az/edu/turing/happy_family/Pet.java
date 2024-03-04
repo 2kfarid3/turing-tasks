@@ -1,4 +1,4 @@
-package happy_family;
+package az.edu.turing.happy_family;
 
 import java.util.Arrays;
 

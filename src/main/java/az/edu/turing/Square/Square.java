@@ -1,4 +1,4 @@
-package Square;
+package az.edu.turing.Square;
 
 public class Square {
     public static long countOfSquares;

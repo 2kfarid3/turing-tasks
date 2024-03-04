@@ -1,4 +1,4 @@
-package az.edu.turing;
+package az.edu.turing.turing_tasks;
 
 
 public class CharFunctionApp {

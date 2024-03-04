@@ -1,4 +1,4 @@
-package RandomNumbersGame;
+package az.edu.turing.RandomNumbersGame;
 
 import java.util.Arrays;
 import java.util.Random;
