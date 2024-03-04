@@ -1,4 +1,4 @@
-package az.edu.turing.OOP.Circle;
+package az.edu.turing.Circle;
 
 public class CircleApp {
     public static void main(String[] args) {
