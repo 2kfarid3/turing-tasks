@@ -13,8 +13,8 @@ public class Main {
         DaysOfTheWeek nonWorkingDay2 = DaysOfTheWeek.name(day2.toUpperCase());
         Human mother = new Human("Angela", "Joana", 1983);
         Human father = new Human("Jack", "Joana", 1979);
-        String[][] nonWorkingActivities = {{nonWorkingDay1.name(),"Football"},
-                {nonWorkingDay2.name(),"Basketball"}};
+        String[][] nonWorkingActivities = {{nonWorkingDay1.name(), "Football"},
+                {nonWorkingDay2.name(), "Basketball"}};
         Pet pet = new Pet(Species.DOG.getSpecies(), "Nora", 3, 20, Species.DOG.getHabits());
         Family family1 = new Family(mother, father, new Human[]{}, pet);
         Human child = new Human("Noah", "Vorano", 2000, 100, nonWorkingActivities, family1);
