@@ -2,20 +2,13 @@ package az.edu.turing.happy_family;
 
 public class Main {
     public static void main(String[] args) {
-        // Create pet
-        Pet pet1 = new Pet("Dog", "Buddy", 3, 5, new String[]{"Fetch", "Roll Over"});
-
-        // Create parents
-        Human mother = new Human("Jane", "Smith", 1975);
-        Human father = new Human("John", "Smith", 1973);
-
-        // Create child with pet and parents
-        Human child = new Human("Michael", "Smith", 2005, 90, mother, father,
-                new int[][]{{1, 2}, {3, 4}}, pet1);
-
-        // Display data about the child
-        System.out.println(mother);
-        child.greetPet();
-        child.describePet();
+        Human mother = new Human("Angela", "Joana", 1983);
+        Human father = new Human("Jack", "Joana", 1979);
+        String[][] nonWorkingActivities = {{"Monday", "Football"}, {"Tuesday", "Basketball"}};
+        Pet pet = new Pet("Dog", "Nora", 3, 20, new String[]{"walking"});
+        Family family1 = new Family(mother, father, new Human[]{}, pet);
+        Human child = new Human("Noah", "Vorano", 2000, 100, nonWorkingActivities, family1);
+        family1.addChild(child);
+        System.out.println(child);
     }
 }
