@@ -96,6 +96,38 @@ public class SinglyLinkedList<E> {
         size++;
     }
 
+    public void deleteFirstNode(){
+        if (head == null){
+            System.out.println("Null");
+        } else {
+            ListNode<E> temp = head;
+            head = head.next;
+            temp.next = null;
+        }
+        size--;
+    }
+
+    public void deleteLastNode() {
+        if (head == null) {
+            System.out.println("Null");
+            return;
+        }
+        if (head.next == null) {
+            head = null;
+            size--;
+            return;
+        }
+        ListNode<E> curr = head;
+        ListNode<E> prev = null;
+        while (curr.next != null) {
+            prev = curr;
+            curr = curr.next;
+        }
+        prev.next = null;
+        size--;
+    }
+
+
     public void deleteNode(int index) {
         if (index < 1 || index > size) {
             throw new IndexOutOfBoundsException("Index out of bounds: " + index);
@@ -154,7 +186,17 @@ public class SinglyLinkedList<E> {
         System.out.println("Size: " + sll.length());
 
         //DeleteNode
-        sll.deleteNode(1);
+        sll.deleteNode(3);
+        sll.display();
+        System.out.println("Size: " + sll.length());
+
+        //DeleteFirstNode
+        sll.deleteFirstNode();
+        sll.display();
+        System.out.println("Size: " + sll.length());
+
+        //DeleteLastNode
+        sll.deleteLastNode();
         sll.display();
         System.out.println("Size: " + sll.length());
 
