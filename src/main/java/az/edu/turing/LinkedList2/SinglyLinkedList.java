@@ -10,7 +10,7 @@ public class SinglyLinkedList<E> {
     }
 
     private static class ListNode<E> {
-        final private E data;
+        private E data;
         private ListNode<E> next;
 
         public ListNode(E data, ListNode<E> next) {
@@ -20,6 +20,10 @@ public class SinglyLinkedList<E> {
 
         public E getData() {
             return data;
+        }
+
+        public void setData(E data) {
+            this.data = data;
         }
     }
 
@@ -32,9 +36,9 @@ public class SinglyLinkedList<E> {
         System.out.println("null");
     }
 
-    public int length(){
+    public int length() {
         int count = 0;
-        if (head == null){
+        if (head == null) {
             return 0;
         }
         ListNode<E> curr = head;
@@ -66,12 +70,12 @@ public class SinglyLinkedList<E> {
         size++;
     }
 
-    public E getIndex(int index){
-        if (index < 0 || index >= size){
+    public E getIndex(int index) {
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index out of bounds: " + index);
-        }
+    }
         ListNode<E> curr = head;
-        for (int i = 0; i < index; i++) {
+        for (int i = 1; i < index; i++) {
             curr = curr.next;
         }
         return curr.getData();
@@ -96,8 +100,8 @@ public class SinglyLinkedList<E> {
         size++;
     }
 
-    public void deleteFirstNode(){
-        if (head == null){
+    public void deleteFirstNode() {
+        if (head == null) {
             System.out.println("Null");
         } else {
             ListNode<E> temp = head;
@@ -148,18 +152,53 @@ public class SinglyLinkedList<E> {
         size--;
     }
 
+    public void updateIndex(int index, E value) {
+        if (index < 1 || index > size) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+        ListNode<E> curr = head;
+        for (int i = 1; i < index; i++) {
+            curr = curr.next;
+        }
+        curr.data = value;
+    }
+
+    public void delete(E value){
+        if (head == null){
+            System.out.println("Null");
+            return;
+        }
+
+        if (head.data.equals(value)){
+            deleteFirstNode();
+            return;
+        }
+
+        ListNode<E> curr = head;
+        while (curr != null && !curr.data.equals(value)){
+            curr = curr.next;
+        }
+        if (curr != null){
+            int index = 1;
+            ListNode<E> temp = head;
+            while (temp != curr){
+                temp = temp.next;
+                index++;
+            }
+            deleteNode(index);
+        } else {
+            System.out.println("This value is null!");
+        }
+    }
+
+
 
     public static void main(String[] args) {
-        ListNode<Integer> first = new ListNode<>(10, null);
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList<>(first);
-        ListNode<Integer> second = new ListNode<>(1, null);
-        ListNode<Integer> third = new ListNode<>(8, null);
-        ListNode<Integer> fourth = new ListNode<>(11, null);
-
-        // We connect them together for to form a chain
-        first.next = second;
-        second.next = third;
-        third.next = fourth;
+        ListNode<Integer> head = new ListNode<>(10, null);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<>(head);
+        sll.insertEnd(1);
+        sll.insertEnd(8);
+        sll.insertEnd(11);
 
         // Print
         sll.display();
@@ -175,13 +214,8 @@ public class SinglyLinkedList<E> {
         sll.display();
         System.out.println("Size: " + sll.length());
 
-        //GetIndex
-       /* sll.display();
-        System.out.println("Size: " + sll.length());                    //Error
-        System.out.println("Element at index 3: " + sll.getIndex(3)); */
-
         //InsertGivenPosition
-        sll.insertGivenPosition(100,3);
+        sll.insertGivenPosition(100, 3);
         sll.display();
         System.out.println("Size: " + sll.length());
 
@@ -200,7 +234,22 @@ public class SinglyLinkedList<E> {
         sll.display();
         System.out.println("Size: " + sll.length());
 
+        //GetIndex
+        sll.display();
+        System.out.println("Size: " + sll.length());
+        System.out.println("Element at index 3: " + sll.getIndex(3));
 
+        //UpdateIndex
+        sll.updateIndex(3,55);
+        sll.display();
+        System.out.println("Size: " + sll.length());
+        System.out.println("Element at index 3: " + sll.getIndex(3));
+
+        //DeleteObject
+        sll.delete(55);
+        sll.display();
+        System.out.println("Size: " + sll.length());
+        System.out.println("Element at index 3: " + sll.getIndex(3));
     }
 }
 
