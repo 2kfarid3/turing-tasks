@@ -34,10 +34,9 @@ public class WeekPlanner {
                 break;
             }
 
-
-            for (String[] strings : schedule) {
-                if (day.equalsIgnoreCase(strings[0]) || day.equalsIgnoreCase(strings[0] + " ")) {
-                    System.out.println(strings[1]);
+            for (int i = 0; i < schedule.length; i++) {
+                if (day.equalsIgnoreCase(schedule[i][0]) || day.equalsIgnoreCase(schedule[i][0] + " ")) {
+                    System.out.println(schedule[i][1]);
                     found = true;
                     break;
                 }
