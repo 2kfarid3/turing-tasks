@@ -1,5 +1,7 @@
 package az.edu.turing.happy_familyV2;
 
+import java.util.Objects;
+
 public class Pet {
     private String species;
     private String nickname;
@@ -7,7 +9,8 @@ public class Pet {
     private int trickLevel;
     private String[] habits;
 
-    public Pet() {}
+    public Pet() {
+    }
 
     public Pet(String species, String nickname) {
         this.species = species;
@@ -60,6 +63,19 @@ public class Pet {
 
     public void setHabits(String[] habits) {
         this.habits = habits;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pet pet = (Pet) o;
+        return age == pet.age && trickLevel == pet.trickLevel && Objects.equals(species, pet.species) && Objects.equals(nickname, pet.nickname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(species, nickname, age, trickLevel);
     }
 
     public void eat() {
