@@ -99,12 +99,13 @@ public class Family {
         return result;
     }
 
-    public void countFamily() {
-        int count = 2;
+    public int countFamily() {
+        int count = 3;
         for (int i = 0; i < children.length; i++) {
             count++;
         }
         System.out.println("Count of family: " + count);
+        return count;
     }
 
     @Override
