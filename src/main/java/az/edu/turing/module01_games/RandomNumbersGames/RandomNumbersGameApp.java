@@ -1,4 +1,4 @@
-package az.edu.turing.RandomNumbersGame;
+package az.edu.turing.module01_games.RandomNumbersGames;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;

@@ -1,4 +1,4 @@
-package az.edu.turing.ship_battle_game;
+package az.edu.turing.module01_games.ShipBattleGame.ship_battle_game;
 
 import java.util.Arrays;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package az.edu.turing.week_planner;
+package az.edu.turing.module01_games.WeekPlannerGame;
 
 import java.util.Scanner;
 
