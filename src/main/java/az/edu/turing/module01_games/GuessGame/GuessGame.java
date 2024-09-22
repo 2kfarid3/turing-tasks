@@ -1,11 +1,11 @@
-package az.edu.turing.module01_games.RandomNumbersGames;
+package az.edu.turing.module01_games.GuessGame;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-public class RandomNumbersGameApp {
+public class GuessGame {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Random random = new Random();
