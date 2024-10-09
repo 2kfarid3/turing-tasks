@@ -1,12 +1,19 @@
 package az.edu.turing.happy_familyV2;
 
+import az.edu.turing.happy_familyV2.enumm.DayOfWeek;
+import az.edu.turing.happy_familyV2.people.Family;
+import az.edu.turing.happy_familyV2.people.Human;
+import az.edu.turing.happy_familyV2.people.Man;
+import az.edu.turing.happy_familyV2.people.Women;
+import az.edu.turing.happy_familyV2.pets.Dog;
+
 public class Main {
     public static void main(String[] args) {
         String[] petHabits = {"eat", "drink", "sleep"};
-        Pet pet = new Pet(Species.DOG, "Rock", 5, 75, petHabits);
+        Dog dog = new Dog("Rock", 5, 75, petHabits);
 
-        Human mother = new Human("Jane", "Karleone", 1983);
-        Human father = new Human("Vito", "Karleone", 1979);
+        Women mother = new Women("Jane", "Karleone", 1983);
+        Man father = new Man("Vito", "Karleone", 1979);
 
         String[][] schedule = new String[2][2];
         schedule[0][0] = DayOfWeek.MONDAY.name();
@@ -20,7 +27,7 @@ public class Main {
 
         family.addChild(child1);
         family.addChild(child2);
-        family.setPet(pet);
+        family.setPet(dog);
 
         family.deleteChild(child1);
 

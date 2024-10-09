@@ -1,8 +1,9 @@
-package az.edu.turing.happy_familyV2;
+package az.edu.turing.happy_familyV2.people;
+
+import az.edu.turing.happy_familyV2.pets.Pet;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Family {
     private Human mother;

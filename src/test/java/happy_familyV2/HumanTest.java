@@ -1,7 +1,7 @@
 package happy_familyV2;
 
-import az.edu.turing.happy_familyV2.DayOfWeek;
-import az.edu.turing.happy_familyV2.Human;
+import az.edu.turing.happy_familyV2.enumm.DayOfWeek;
+import az.edu.turing.happy_familyV2.people.Human;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

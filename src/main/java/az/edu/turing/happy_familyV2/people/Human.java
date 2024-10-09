@@ -1,4 +1,6 @@
-package az.edu.turing.happy_familyV2;
+package az.edu.turing.happy_familyV2.people;
+
+import az.edu.turing.happy_familyV2.pets.Pet;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -10,6 +12,7 @@ public class Human {
     private int iq;
     private Family family;
     private String[][] schedule;
+    private Pet pet;
 
     public Human(String name, String surname, int year, int iq, String[][] schedule) {
         this.name = name;
@@ -86,11 +89,11 @@ public class Human {
         this.schedule = schedule;
     }
 
-    /*public void greetPet(){
-        System.out.println("Hello, " + pet.getNickname());
+    public void greetPet(){
+        System.out.println("Hello, my pet");
     }
 
-    public void describePet(){
+    /*public void describePet(){
         System.out.println("I have " + pet.getSpecies() + "is " + pet.getAge() + "years old.");
         if (pet.getTrickLevel() > 50){
             System.out.println("He is very sly.");

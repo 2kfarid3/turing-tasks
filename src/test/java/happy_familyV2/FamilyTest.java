@@ -1,9 +1,9 @@
 package happy_familyV2;
 
-import az.edu.turing.happy_familyV2.Family;
-import az.edu.turing.happy_familyV2.Human;
-import az.edu.turing.happy_familyV2.Pet;
-import az.edu.turing.happy_familyV2.Species;
+import az.edu.turing.happy_familyV2.people.Family;
+import az.edu.turing.happy_familyV2.people.Human;
+import az.edu.turing.happy_familyV2.pets.Dog;
+import az.edu.turing.happy_familyV2.pets.Pet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +14,7 @@ public class FamilyTest {
     private Human father;
     private Human child1;
     private Human child2;
-    private Pet pet;
+    private Pet dog;
 
     @BeforeEach
     void setUp() {
@@ -23,8 +23,8 @@ public class FamilyTest {
         family = new Family(mother, father);
         child1 = new Human("Michael", "Karleone", 2004, 90, new String[][]{{"MONDAY", "gym"}, {"FRIDAY", "swimming"}});
         child2 = new Human("John", "Karleone", 2006, 90, new String[][]{{"MONDAY", "gym"}, {"FRIDAY", "swimming"}});
-        pet = new Pet(Species.DOG, "Rock", 5, 75, new String[]{"eat, drink, sleep]"});
-        family.setPet(pet);
+        dog = new Dog("Rock", 5, 75, new String[]{"eat, drink, sleep]"});
+        family.setPet(dog);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class FamilyTest {
     void testCountFamily() {
         family.addChild(child1);
         family.addChild(child2);
-        family.setPet(pet);
+        family.setPet(dog);
         assertEquals(5, family.countFamily(), "Count of family members is false!");
     }
 
