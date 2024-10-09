@@ -73,7 +73,7 @@ public class SinglyLinkedList<E> {
     public E getIndex(int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index out of bounds: " + index);
-    }
+        }
         ListNode<E> curr = head;
         for (int i = 1; i < index; i++) {
             curr = curr.next;
@@ -163,25 +163,25 @@ public class SinglyLinkedList<E> {
         curr.data = value;
     }
 
-    public void delete(E value){
-        if (head == null){
+    public void delete(E value) {
+        if (head == null) {
             System.out.println("Null");
             return;
         }
 
-        if (head.data.equals(value)){
+        if (head.data.equals(value)) {
             deleteFirstNode();
             return;
         }
 
         ListNode<E> curr = head;
-        while (curr != null && !curr.data.equals(value)){
+        while (curr != null && !curr.data.equals(value)) {
             curr = curr.next;
         }
-        if (curr != null){
+        if (curr != null) {
             int index = 1;
             ListNode<E> temp = head;
-            while (temp != curr){
+            while (temp != curr) {
                 temp = temp.next;
                 index++;
             }
@@ -190,7 +190,6 @@ public class SinglyLinkedList<E> {
             System.out.println("This value is null!");
         }
     }
-
 
 
     public static void main(String[] args) {
@@ -240,7 +239,7 @@ public class SinglyLinkedList<E> {
         System.out.println("Element at index 3: " + sll.getIndex(3));
 
         //UpdateIndex
-        sll.updateIndex(3,55);
+        sll.updateIndex(3, 55);
         sll.display();
         System.out.println("Size: " + sll.length());
         System.out.println("Element at index 3: " + sll.getIndex(3));
