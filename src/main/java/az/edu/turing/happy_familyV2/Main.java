@@ -6,11 +6,12 @@ import az.edu.turing.happy_familyV2.people.Human;
 import az.edu.turing.happy_familyV2.people.Man;
 import az.edu.turing.happy_familyV2.people.Women;
 import az.edu.turing.happy_familyV2.pets.Dog;
+import az.edu.turing.happy_familyV2.pets.Pet;
 
 public class Main {
     public static void main(String[] args) {
         String[] petHabits = {"eat", "drink", "sleep"};
-        Dog dog = new Dog("Rock", 5, 75, petHabits);
+        Pet dog = new Dog("Rock", 5, 75, petHabits);
 
         Women mother = new Women("Jane", "Karleone", 1983);
         Man father = new Man("Vito", "Karleone", 1979);
