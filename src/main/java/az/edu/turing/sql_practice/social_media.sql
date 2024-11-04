@@ -131,24 +131,24 @@ select users.id,user_name,email,post.title,post.text from post
 --Hansi user hansi posta ne comment atib
 SELECT users.id, users.user_name, users.email, post.title, comment_post.text AS comment_text
 FROM comment_post
-         INNER JOIN users ON comment_post.user_id = users.id
-         INNER JOIN post ON comment_post.post_id = post.id;
+INNER JOIN users ON comment_post.user_id = users.id
+INNER JOIN post ON comment_post.post_id = post.id;
 
 --Hansi user hansi comment ne reply edib
 SELECT users.id, users.user_name, users.email, comment_post.text AS original_comment_text, comment_comment.text AS reply_comment_text
 FROM comment_comment
-         INNER JOIN users ON comment_comment.user_id = users.id
-         INNER JOIN comment_post ON comment_comment.comment_id = comment_post.id;
+INNER JOIN users ON comment_comment.user_id = users.id
+INNER JOIN comment_post ON comment_comment.comment_id = comment_post.id;
 
 --Hansi user hansi postu beyenib
 select users.id,user_name,email,post.title as liked_post from likes_post
-                                                                  inner join users on likes_post.user_id = users.id
-                                                                  inner join post on likes_post.post_id = post.id;
+inner join users on likes_post.user_id = users.id
+inner join post on likes_post.post_id = post.id;
 
 --Hansi user hansi commenti beyenib
 select users.id,user_name,email,comment_post.text as liked_comment from likes_comment
-                                                                            inner join users on likes_comment.user_id = users.id
-                                                                            inner join comment_post on likes_comment.comment_id = comment_post.id;
+inner join users on likes_comment.user_id = users.id
+inner join comment_post on likes_comment.comment_id = comment_post.id;
 
 
 
