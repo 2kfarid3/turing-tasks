@@ -21,7 +21,7 @@ VALUES ('Test 2', '0000', 'usertest2@gmail.com', '2000-12-12');
 --ALTER TABLE users ALTER COLUMN email VARCHAR(255) UNIQUE NOT NULL CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
 
 ALTER TABLE users
-DROP CONSTRAINT IF EXISTS users_email_check;
+    DROP CONSTRAINT IF EXISTS users_email_check;
 
 ALTER TABLE users
     ADD CONSTRAINT users_email_check
@@ -52,8 +52,6 @@ CREATE TABLE post (
                       title VARCHAR(255) NOT NULL,
                       text TEXT NOT NULL,
                       status VARCHAR(20) DEFAULT 'active',
-                      likes_count integer DEFAULT 0,
-                      comments_count integer DEFAULT 0,
                       createdAt TIMESTAMP NOT NULL DEFAULT NOW(),
                       updatedAt TIMESTAMP NOT NULL DEFAULT NOW(),
                       FOREIGN KEY (user_id) REFERENCES users(id)
@@ -71,7 +69,6 @@ CREATE TABLE comment_post (
                               post_id bigserial NOT NULL,
                               text TEXT NOT NULL,
                               status VARCHAR(20) DEFAULT 'active',
-                              likes_count integer DEFAULT 0,
                               createdAt TIMESTAMP NOT NULL DEFAULT NOW(),
                               updatedAt TIMESTAMP NOT NULL DEFAULT NOW(),
                               FOREIGN KEY (user_id) REFERENCES users(id),
@@ -84,7 +81,6 @@ CREATE TABLE comment_comment (
                                  comment_id bigserial NOT NULL,
                                  text TEXT NOT NULL,
                                  status VARCHAR(20) DEFAULT 'active',
-                                 likes_count integer DEFAULT 0,
                                  createdAt TIMESTAMP NOT NULL DEFAULT NOW(),
                                  updatedAt TIMESTAMP NOT NULL DEFAULT NOW(),
                                  FOREIGN KEY (user_id) REFERENCES users(id),
@@ -126,7 +122,7 @@ VALUES (5,1);
 
 --Hansi user hansi post atib
 select users.id,user_name,email,post.title,post.text from post
-                                                              inner join users on post.user_id = users.id;
+inner join users on post.user_id = users.id;
 
 --Hansi user hansi posta ne comment atib
 SELECT users.id, users.user_name, users.email, post.title, comment_post.text AS comment_text
@@ -149,6 +145,16 @@ inner join post on likes_post.post_id = post.id;
 select users.id,user_name,email,comment_post.text as liked_comment from likes_comment
 inner join users on likes_comment.user_id = users.id
 inner join comment_post on likes_comment.comment_id = comment_post.id;
+
+--Posta atilan begenileri sayi
+SELECT post_id, COUNT(*) AS likes_count
+FROM likes_post
+GROUP BY post_id;
+
+--Commente atilan begenileri sayi
+SELECT comment_id, COUNT(*) AS likes_count
+FROM likes_comment
+GROUP BY comment_id;
 
 
 
