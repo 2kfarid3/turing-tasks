@@ -2,24 +2,23 @@ package az.edu.turing.Sortings.selection_sort;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int[] arr = {3, 5, 8, 1, 9};
+        int[] arr = {99, 13, 8, 25, 7};
+        int temp, key;
 
-        int temp;
         for (int i = 0; i < arr.length - 1; i++) {
-            int min = i;
+            key = i;
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[min]) {
-                    min = j;
+                if (arr[key] > arr[j]) {
+                    key = j;
                 }
             }
-            if (min != i) {
-                temp = arr[i];
-                arr[i] = arr[min];
-                arr[min] = temp;
-            }
+            temp = arr[i];
+            arr[i] = arr[key];
+            arr[key] = temp;
         }
-        for (int j : arr) {
-            System.out.print(j + " ");
+
+        for (int iterate : arr) {
+            System.out.print(iterate + " ");
         }
     }
 }

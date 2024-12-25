@@ -2,18 +2,22 @@ package az.edu.turing.Sortings.insertion_sort;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        int[] arr = {3, 5, 8, 1, 9};
+        int[] arr = {99, 13, 8, 25, 7};
+        int key, j;
 
-        int temp;
         for (int i = 1; i < arr.length; i++) {
-            int key = i;
-            for (int j = 0; j < arr.length; j++) {
-                if (arr[key] < arr[j]){
-                    temp = arr[j];
-                    arr[j] = arr[key];
-                    arr[key] = temp;
-                }
+            key = arr[i];
+            j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
             }
+            arr[j + 1] = key;
+        }
+
+        for (int iterate : arr) {
+            System.out.print(iterate + " ");
         }
     }
 }
+
